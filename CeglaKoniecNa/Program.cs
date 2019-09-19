@@ -17,6 +17,7 @@ namespace CeglaKoniecNa
             Dividers(100);
             Console.WriteLine();
             Console.WriteLine($"\tExercise 5\t| {FindOddElement(new int[] { 2,3,6,7,1,2,1,7,6,5,3 })}");
+            Console.WriteLine($"\tExercise 5*\t| {FindOddElementVersion2(new int[] { 2, 3, 6, 7, 1, 2, 1, 7, 6, 5, 3 })}");
 
             Console.ReadKey();
         }
@@ -159,6 +160,11 @@ namespace CeglaKoniecNa
             public Node more;
             public Node parent;
             public bool IsLeaf => less == null && more == null;
+        }
+
+        public static int FindOddElementVersion2(int[] v)
+        {
+            return v.GroupBy(x => x).Select(x => new { val = x.Key, count = x.Count() }).FirstOrDefault(x => x.count % 2 == 1)?.val ?? throw new ArgumentException("There is no odd element in the table");
         }
     }
 }

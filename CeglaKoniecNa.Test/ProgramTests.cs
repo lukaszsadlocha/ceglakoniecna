@@ -61,6 +61,23 @@ namespace CeglaKoniecNa.Test
             Program.FindOddElement(new int[] { 2, 2, 3, 3, 4, 4, 5, 5, 7, 7, 6, 6 });
         }
 
+        [TestMethod]
+        public void FindOddElementVersion2Tests()
+        {
+            Assert.AreEqual(Program.FindOddElementVersion2(new int[] { 5 }), 5);
+            Assert.AreEqual(Program.FindOddElementVersion2(new int[] { 5, 5, 2 }), 2);
+            Assert.AreEqual(Program.FindOddElementVersion2(new int[] { -2, 2, -2, 2, 1 }), 1);
+            Assert.AreEqual(Program.FindOddElementVersion2(new int[] { 5, 5, 5, 5, 5, 5, 5, 5, 5 }), 5);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException), "There is no odd element in the table")]
+        public void FindOddElementVersion2ExceptionTests()
+        {
+            Program.FindOddElementVersion2(new int[] { 2, 2, 3, 3, 4, 4, 5, 5, 7, 7, 6, 6 });
+        }
+
+
 
 
 
